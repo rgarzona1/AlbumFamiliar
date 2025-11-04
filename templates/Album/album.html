@@ -3,9 +3,10 @@
 {% load static %}
 
 {% block content %}
+
 <div class="album-header">
     <h2>Galería de Fotos</h2>
-    <a href="{% url 'agregar_foto' %}" class="btn agregar-btn">+ Agregar nueva foto</a>
+    <button onclick="location.href='/crear'" class="agregar-btn">+ Agregar nueva foto</button>
 </div>
 
 <div class="album-container">
@@ -17,9 +18,11 @@
             <p>{{ foto.descripcion }}</p>
             <span class="fecha">{{ foto.fecha|date:"d M Y" }}</span>
         </div>
+        <button onclick="location.href='/eliminar/{{ foto.id }}/'" class="btn eliminar-btn">Eliminar</button>
+        <button onclick="location.href='/editar/{{ foto.id }}/'" class="btn editar-btn">Editar</button>
     </div>
     {% empty %}
-    <p class="no-fotos">No hay fotos aún en el álbum. <a href="{% url 'agregar_foto' %}">Agrega una aquí</a>.</p>
+    <p class="no-fotos">No hay fotos aún en el álbum. <a href="/crear">Agrega una aquí</a>.</p>
     {% endfor %}
 </div>
 {% endblock %}

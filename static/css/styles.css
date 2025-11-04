@@ -7,6 +7,22 @@ body {
     color: #333;
 }
 
+/* Mensajes de notificación */
+.messages-container {
+    max-width: 900px;
+    margin: 10px auto;
+    padding: 0 20px;
+}
+.alert {
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+.alert.success, .alert.success a, .alert.success p {
+    background-color: #d4edda;
+    color: #155724;
+}
+
 header {
     background-color: #3b5998;
     color: white;
@@ -32,6 +48,16 @@ footer {
     padding: 20px;
     max-width: 900px;
     margin: 0 auto;
+}
+
+/* Cabecera del álbum: título y botón en una fila */
+.album-header {
+    max-width: 900px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* ----- Tarjetas ----- */
@@ -76,6 +102,22 @@ footer {
     color: #888;
 }
 
+.btn.eliminar-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    height: 30px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.btn.eliminar-btn:hover {
+    background-color: #c0392b;
+}
+
 /* ----- Formulario ----- */
 .form-container {
     max-width: 600px;
@@ -113,19 +155,69 @@ textarea {
     font-size: 1em;
 }
 
-.btn {
-    display: block;
-    width: 100%;
+
+
+.btn:hover {
+    background-color: #324b81;
+}
+
+button.agregar-btn {
+    margin-top: 0; 
+    display: inline-block;
+    width: auto ;
+    height: auto;
+    text-align: center;
     background-color: #3b5998;
     color: white;
-    padding: 12px;
+    padding: 8px 12px;
     border: none;
     border-radius: 6px;
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.2s ease;
+    text-decoration: none;
 }
 
-.btn:hover {
-    background-color: #324b81;
+.btn.editar-btn {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    height: 30px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.btn.editar-btn:hover {
+    background-color: #1c5980;
+}
+
+.btn.guardar-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    height: 35px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
+}
+
+.btn.guardar-btn:hover {
+    background-color: #1e8449;
+}
+
+.btn.cancelar-btn {
+    background-color: #95a5a6;
+    color: white;
+    border: none;
+    height: 35px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.2s ease;
 }
