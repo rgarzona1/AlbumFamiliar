@@ -42,7 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Album',
+    'crispy_forms',
+    'crispy_bootstrap4',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap4'
+
+# URLs de redirección para autenticación
+LOGIN_REDIRECT_URL = '/'  # Redirige a la página principal después del login
+LOGOUT_REDIRECT_URL = '/login/'  # Redirige a login después del logout
+LOGIN_URL = '/login/'  # URL para el decorador @login_required
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

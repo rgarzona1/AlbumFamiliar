@@ -10,7 +10,18 @@
 <body>
 
     <header>
-        <h1>Álbum Familiar</h1>
+        <div class="header-content">
+            <h1>Álbum Familiar</h1>
+            <div class="header-actions">
+                {% if user.is_authenticated %}
+                    <span class="welcome-text">Hola, {{ user.username }}</span>
+                    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn logout-btn">Cerrar Sesión</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
     </header>
 
     <main>

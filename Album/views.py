@@ -3,13 +3,16 @@ from .forms import EditarFotoForm, FotoForm
 from django.shortcuts import redirect
 from .models import Fotos
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+@login_required
 def home(request):
     fotos = Fotos.objects.all()
     return render(request, 'Album/album.html', {'fotos': fotos})
 
+@login_required
 def crear_imagen(request):
     if request.method == 'POST':
         form = FotoForm(request.POST, request.FILES)
@@ -21,6 +24,7 @@ def crear_imagen(request):
 
     return render(request, 'Album/crearFoto.html', {'form': form})
 
+@login_required
 def eliminar_imagen(request, id):
     foto = get_object_or_404(Fotos, id=id)
     if request.method == 'POST':
@@ -30,11 +34,13 @@ def eliminar_imagen(request, id):
     return render(request, 'Album/eliminar.html', {'foto': foto})
 
 
+@login_required
 def cargar_imagen(request, id):
     foto = get_object_or_404(Fotos, id=id)
     form = EditarFotoForm(instance=foto)
     return render(request, 'Album/editar.html', {'form': form, 'foto': foto})
 
+@login_required
 def editar_imagen(request, id):
     foto = get_object_or_404(Fotos, id=id)
     if request.method == 'POST':
